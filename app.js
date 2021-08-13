@@ -15,7 +15,15 @@ const promptUser = () => {
     {
       type: 'input',
       name: 'name',
-      message: 'What is your name?'
+      message: 'What is your name? (Required)',
+      validate: nameInput => {
+        if (nameInput) {
+          return true;
+        } else {
+          console.log('Please enter your name!');
+          return false;
+        }
+      }
     },
     {
       type: 'input',
@@ -88,3 +96,5 @@ promptUser()
   .then(portfolioData => {
     console.log(portfolioData);
   });
+
+  //left off at 9.3.6
